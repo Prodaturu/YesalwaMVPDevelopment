@@ -1,0 +1,51 @@
+/* client/src/components/Transition.css */
+.transition-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	/* Make the background transparent */
+	overflow: hidden;
+	transition: opacity 1s ease-in-out;
+	z-index: 9999;
+	/* Ensure it is on top of other elements */
+}
+
+.transition-container.hide {
+	opacity: 0;
+}
+
+.logo {
+	width: 100vw;
+	height: auto;
+	animation: moveToCorner 3s ease-in-out forwards;
+	box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes moveToCorner {
+	0% {
+		width: 100vw;
+		height: auto;
+		transform: translate(0, 0);
+	}
+
+	50% {
+		width: 100px;
+		/* Adjust the intermediate size of the logo */
+		height: auto;
+		transform: translate(0, 0);
+	}
+
+	100% {
+		width: 100px;
+		/* Adjust the final size of the logo */
+		height: auto;
+		transform: translate(-55vw, -55vh);
+		/* Move to the top left corner */
+	}
+}

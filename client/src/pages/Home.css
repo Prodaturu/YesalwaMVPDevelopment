@@ -1,0 +1,57 @@
+/* client/src/pages/Home.css */
+.home-container {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-position: center;
+	transition: background-image 3s ease-in-out;
+	padding: 0%;
+}
+  
+  .home-container.initial {
+	background-image: url('../assets/HomeBackgroundInitial.png'); /* Replace with your initial image path */
+}
+  
+  .home-container.final {
+	background-image: url('../assets/HomeBackgroundFinal.png'); /* Replace with your final image path */
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden; /* Prevent scrolling */
+}
+
+.centered-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: center;
+  }
+
+  .gradient-text {
+	font-size: 3rem;
+	background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
+	background-size: 600% 600%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientAnimation 5s ease infinite;
+  }
+
+@keyframes gradientAnimation {
+	0% {
+	  background-position: 0% 50%;
+	}
+	50% {
+	  background-position: 100% 50%;
+	}
+	100% {
+	  background-position: 0% 50%;
+	}
+  }
