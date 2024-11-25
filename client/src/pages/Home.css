@@ -1,4 +1,4 @@
-/* client/src/pages/Home.css */
+/* General container styling */
 .home-container {
 	width: 100vw;
 	height: 100vh;
@@ -7,51 +7,90 @@
 	background-size: cover;
 	background-position: center;
 	transition: background-image 3s ease-in-out;
-	padding: 0%;
-}
+  }
   
   .home-container.initial {
-	background-image: url('../assets/HomeBackgroundInitial.png'); /* Replace with your initial image path */
-}
+	background-image: url('../assets/HomeBackgroundInitial.png'); /* Replace with your initial image */
+  }
   
   .home-container.final {
-	background-image: url('../assets/HomeBackgroundFinal.png'); /* Replace with your final image path */
-}
-
-html, body {
+	background-image: url('../assets/HomeBackgroundFinal.png'); /* Replace with your final image */
+  }
+  
+  html,
+  body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	height: 100%;
 	overflow: hidden; /* Prevent scrolling */
-}
-
-.centered-text {
+  }
+  
+  /* Text alignment and styling */
+  .centered-text {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 	text-align: center;
+	margin: 0;
   }
-
-  .gradient-text {
+  
+  /* Spreading rainbow effect */
+  .spreading-rainbow-text {
 	font-size: 3rem;
-	background: linear-gradient(270deg, #ff7e5f, #feb47b, #ff7e5f);
-	background-size: 600% 600%;
+	font-weight: bold;
+	background: linear-gradient(
+	  to left,
+	  #f56565,
+	  #ff7f00,
+	  #ffff00,
+	  #00ff00,
+	  #00bfff,
+	  #003282,
+	  #8400ff
+	);
+	background-size: 200% 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	animation: gradientAnimation 5s ease infinite;
+	animation: rainbowLoop 5s linear infinite;
+	white-space: nowrap; /* Ensure text stays in one line */
   }
-
-@keyframes gradientAnimation {
+  
+  /* Continuous rainbow animation */
+  @keyframes rainbowLoop {
 	0% {
 	  background-position: 0% 50%;
 	}
-	50% {
+	100% {
 	  background-position: 100% 50%;
 	}
-	100% {
+  }
+  
+  /* Continuous rainbow animation */
+  @keyframes rainbowLoop {
+	0% {
 	  background-position: 0% 50%;
 	}
+	100% {
+	  background-position: 100% 50%;
+	}
   }
+  
+  /* Rainbow blinking cursor */
+  .rainbow-cursor {
+	display: inline-block;
+	width: 1ch;
+	height: 1.5rem;
+	background: #fff;
+	animation: cursorBlink 0.5s step-end infinite;
+  }
+  
+  /* Cursor blinking animation */
+  @keyframes cursorBlink {
+	50% {
+	  opacity: 0;
+	}
+  }
+  

@@ -11,6 +11,7 @@ const Home = lazy(() => import('./pages/Home.jsx'));
 const Questionnaire = lazy(() => import('./pages/Questionnaire.jsx'));
 const Product = lazy(() => import('./pages/Product.jsx'));
 const Results = lazy(() => import('./pages/Results.jsx'));
+const Personality = lazy(() => import('./pages/Personality.jsx'));
 
 function App() {
   const [showTransition, setShowTransition] = useState(true); // State for transition visibleness control
@@ -38,6 +39,7 @@ function App() {
                   <Route path="/questionnaire" element={<Questionnaire />} />
                   <Route path="/product" element={<Product />} />
                   <Route path="/results" element={<Results />} />
+                  <Route path="/personality" element={<Personality />} />
                 </Routes>
             </>
           )}

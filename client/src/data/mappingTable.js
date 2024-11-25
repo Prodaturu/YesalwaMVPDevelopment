@@ -45,3 +45,5 @@ const mappingTable = [
 	{ feature_id: 14, option_id: 52, aspect_id: 4 },
 	{ feature_id: 14, option_id: 53, aspect_id: 4 },
 ];	
+
+export default mappingTable;

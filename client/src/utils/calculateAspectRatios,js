@@ -1,0 +1,34 @@
+import mappingTable from "../data/mappingTable";
+
+const calculateAspectRatios = (userResponses) => {
+  const aspectCounts = {};
+
+  // Initialize aspect data
+  mappingTable.forEach(({ aspect_id }) => {
+    if (!aspectCounts[aspect_id]) {
+      aspectCounts[aspect_id] = { matched: 0, total: 0 };
+    }
+    aspectCounts[aspect_id].total++;
+  });
+
+  // Count matches for each aspect
+  userResponses.forEach(({ feature_id, option_id }) => {
+    const matchedMapping = mappingTable.find(
+      (entry) => entry.feature_id === feature_id && entry.option_id === option_id
+    );
+    if (matchedMapping) {
+      aspectCounts[matchedMapping.aspect_id].matched++;
+    }
+  });
+
+  // Calculate aspect ratios
+  const aspectRatios = {};
+  Object.keys(aspectCounts).forEach((aspect_id) => {
+    const { matched, total } = aspectCounts[aspect_id];
+    aspectRatios[aspect_id] = (matched / total) * 100; // Percentage
+  });
+
+  return aspectRatios;
+};
+
+export default calculateAspectRatios;
