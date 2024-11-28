@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import questions from '../data/questions.js'; // Your question set
 import mappingTable from '../data/mappingTable.js'; // Your mapping table
 import '../styles/Questionnaire.css';
 import { useNavigate } from 'react-router-dom';
+import ellipseImage from '../assets/ellipse.png';
 
 const Questionnaire = () => {
-  const [hasStarted, setHasStarted] = useState(false); // Tracks whether the questionnaire has started
+  // Tracks whether the questionnaire has started
+  const [hasStarted, setHasStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [aspectCounts, setAspectCounts] = useState(null);
@@ -15,7 +17,8 @@ const Questionnaire = () => {
 
   const handleOptionSelect = (optionId) => {
     const updatedOptions = [...selectedOptions];
-    updatedOptions[currentQuestionIndex] = optionId; // Store selected option for the current question
+    // Store selected option for the current question
+    updatedOptions[currentQuestionIndex] = optionId;
     setSelectedOptions(updatedOptions);
   };
 
@@ -46,10 +49,10 @@ const Questionnaire = () => {
     setAspectCounts(counts);
   };
 
-  const totalAspects = mappingTable.reduce((acc, entry) => {
-    acc[entry.aspect_id] = acc[entry.aspect_id] ? acc[entry.aspect_id] + 1 : 1;
-    return acc;
-  }, {});
+  // const totalAspects = mappingTable.reduce((acc, entry) => {
+  //   acc[entry.aspect_id] = acc[entry.aspect_id] ? acc[entry.aspect_id] + 1 : 1;
+  //   return acc;
+  // }, {});
 
   return (
     <div className="container">
@@ -58,7 +61,8 @@ const Questionnaire = () => {
         <div className="intro-screen">
           <h3>Please fill the questionnaire to know your personality type</h3>
           <button
-            onClick={() => setHasStarted(true)} // Start questionnaire
+            // Start questionnaire
+            onClick={() => setHasStarted(true)}
             className="start-button"
           >
             Start
@@ -67,14 +71,13 @@ const Questionnaire = () => {
       ) : aspectCounts === null ? (
         // Questionnaire screen
         <>
-          <h3>{currentQuestion.question}</h3>
+          <h3 className='question-class'>{currentQuestion.question}</h3>
           {currentQuestion.options.map((o) => (
             <div
               key={o.id}
               onClick={() => handleOptionSelect(parseInt(o.id))}
-              className={`option ${
-                selectedOptions[currentQuestionIndex] === parseInt(o.id) ? 'selected' : ''
-              }`}
+              className={`option ${selectedOptions[currentQuestionIndex] === parseInt(o.id) ? 'selected' : ''
+                }`}
             >
               <img src={o.image} alt={o.text} />
               <div className="option-description">
@@ -100,6 +103,7 @@ const Questionnaire = () => {
         // Results screen
         navigate('/personality')
       )}
+      <img src={ellipseImage} alt="Ellipse" className="ellipse" />
     </div>
   );
 };

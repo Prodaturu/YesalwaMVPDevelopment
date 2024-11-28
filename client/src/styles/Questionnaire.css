@@ -1,19 +1,41 @@
 body {
+	/*	font related properties	*/
 	font-family: 'Arial', sans-serif;
-	background-color: #060606;
-	margin: 0;
-	padding: 0;
+	/*	display related properties	*/
+	background-image: image-set(url("../assets/black-sky-bg.jpg") 1x, url("../assets/black-sky-bg-uhd.jpg") 2x);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	/*	size and overflow	*/
+	padding: 0;
+	margin: 0;
 	height: 100vh;
+	min-width: 420px;
 }
 
 .container {
-	width: 90%;
-	min-width: 25vw;
+	/*	display related properties	*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	/*	background and shadows	*/
+	background: #1d1c1cb9;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	/*	size and overflow	*/
+	height: 65vh;
+	width: 30vw;
+	min-width: 300px;
 	max-width: 700px;
-	background: #1d1c1cab;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* .container {
+	width: 80%; //
+	min-width: 300px;
+	max-width: 700px;
+	background: #1d1c1cb9;
 	border-radius: 10px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 	padding: 20px;
@@ -21,15 +43,19 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 80vh;
+	height: 65vh;
+} */
+
+
+h3 {
+	color: #fbfbfb;
+	margin: 10px 0;
 }
 
-h2 {
-	color: #eeeeee;
-	margin-bottom: 20px;
-}
+/* --- Properties during Questions --- */
 
 .option {
+	/* dis */
 	display: flex;
 	align-items: center;
 	background-color: #b1b3b5;
@@ -39,6 +65,7 @@ h2 {
 	padding: 10px;
 	cursor: pointer;
 	transition: background-color 0.3s, box-shadow 0.3s;
+	width: 60%;
 }
 
 .option:hover {
@@ -47,8 +74,8 @@ h2 {
 }
 
 .option img {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border-radius: 5px;
 	margin-right: 15px;
 }
@@ -78,11 +105,11 @@ button.navigation {
 }
 
 button.navigation:hover {
-	background-color: #0056b3;
+	background-color: #2d8ef6;
 }
 
 button.navigation:disabled {
-	background-color: #ced4da;
+	background-color: #838485;
 	cursor: not-allowed;
 }
 
@@ -111,20 +138,41 @@ button.navigation:disabled {
 
 .intro-screen h3 {
 	font-size: 1.8rem;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .start-button {
 	font-size: 1.2rem;
 	padding: 10px 20px;
 	color: #fff;
-	background: linear-gradient(270deg, #ff7e5f, #feb47b);
-	border: none;
+	background: linear-gradient(270deg, #f63f12, #f6b27e);
+	border: 1px gradient #ff7e5f #feb47b;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background 0.3s ease;
+	transition: background 1s ease;
+	margin-top: 0.5vw;
 }
 
 .start-button:hover {
 	background: linear-gradient(270deg, #feb47b, #ff7e5f);
 }
+
+.question-class {
+	margin: 0.5%;
+	font-size:large;
+}
+
+div.navigation-bar{
+	margin-bottom: 5%;
+}
+
+.ellipse {
+	position: fixed;
+	bottom: -80vh; /* Adjust this value to control how much of the ellipse is visible */
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vh; /* Adjust the width as needed */
+	height: auto;
+	z-index: 1; /* Ensure it is behind other content */
+}
+  

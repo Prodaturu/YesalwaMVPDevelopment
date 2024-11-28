@@ -1,0 +1,8 @@
+@font-face {
+	font-family: "Alien League Bold";
+	src: url('./assets/fonts/AlienLeague-Bold.woff2') format('woff2'),
+		 url('./assets/fonts/AlienLeague-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+  }
+  

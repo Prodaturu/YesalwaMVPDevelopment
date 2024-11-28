@@ -1,5 +1,5 @@
 // client/src/components/Transition.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Transition.css'; // Create this CSS file for styling
 import logo from '../assets/YesalwaLogo.png';
@@ -25,5 +25,7 @@ const Transition = () => {
     </div>
   );
 };
+
+
 
 export default Transition;
