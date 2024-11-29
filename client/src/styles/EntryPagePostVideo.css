@@ -8,10 +8,10 @@
 	height: 100vh;
 	position: relative;
 	overflow: hidden;
-  }
-  
-  /* Shared background styles */
-  .background {
+}
+
+/* Shared background styles */
+.background {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -20,55 +20,101 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	transition: transform 1.5s ease;
-  }
-  
-  /* Initial backgrounds */
-  .bg1 {
+}
+
+.bg1 {
 	background-image: url(../assets/nasa-hubble-space-telescope.jpg);
 	background-position: center;
-  }
-  
-  .bg2 {
+}
+
+.bg2 {
 	background-image: url(../assets/black-sky-bg.jpg);
 	background-position: center;
-	transform: translateX(100%); /* Initially off-screen to the right */
-  }
-  
-  /* When transitioning, move both backgrounds */
-  .entry-page-post.transitioning .bg1 {
-	transform: translateX(-100%); /* Move bg1 off-screen to the left */
-  }
-  
-  .entry-page-post.transitioning .bg2 {
-	transform: translateX(0); /* Move bg2 into view */
-  }
-  
-  /* Ellipse styles */
-  .ellipse {
+	transform: translateX(100%);
+}
+
+/* When transitioning, move both backgrounds */
+.entry-page-post.transitioning .bg1 {
+	transform: translateX(-100%);
+}
+
+.entry-page-post.transitioning .bg2 {
+	transform: translateX(0);
+}
+
+.ellipse {
 	height: 25vh;
 	position: absolute;
 	bottom: 7vh;
 	left: 15vh;
 	filter: drop-shadow(1vh -1.75vh 25px rgba(254, 249, 241, 0.36));
 	cursor: pointer;
-  }
-  
-  .entry-page-post.transitioning .ellipse-transition {
+}
+
+.entry-page-post.transitioning .ellipse-transition {
 	animation: ellipse-move 1.5s forwards;
-  }
-  
-  /* Ellipse animation */
-  @keyframes ellipse-move {
+}
+
+/* Ellipse animation */
+@keyframes ellipse-move {
 	0% {
-	  transform: translate(0, 0);
-	  height: 25vh;
-	  left: 15vh;
+		transform: translate(0, 0);
+		height: 25vh;
+		left: 15vh;
 	}
 	100% {
-	  transform: translate(0%, 0%);
-	  height: 90vh;
-	  left: calc(50% - 45vh);
-	  margin-left: 0%;
+		transform: translate(0%, -5%);
+		height: 90vh;
+		left: calc(50% - 41vh);
+		margin-left: 0%;
 	}
-  }
-  
+}
+
+.white-ellipse {
+	height: 70vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+/* Show white-ellipse when it's supposed to */
+.entry-page-post .white-ellipse {
+	opacity: 1;
+}
+
+.text-boxes-div {
+	position: absolute;
+	bottom: 50vh;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+	color: black;
+	width: 40vh;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.text-boxes-div h1 {
+	font-size: 3.5vh;
+	font-weight: 500;
+}
+
+.text-boxes-div h2 {
+	font-size: 2.5vh;
+	font-weight: 500;
+}
+
+.text-boxes-div p {
+	font-size: 2.5vh;
+	font-weight: 400;
+}
+
+.text-boxes-div:hover {
+	cursor: pointer;
+}
