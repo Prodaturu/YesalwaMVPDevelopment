@@ -30,9 +30,9 @@ button {
 
 .ellipse {
 	position: absolute;
-	top: 5%;
+	top: 0%;
 	left: 50%;
-	height: 90%;
+	height: 100%;
 	aspect-ratio: 1;
 	transform: translateX(-50%);
 	z-index: 10;

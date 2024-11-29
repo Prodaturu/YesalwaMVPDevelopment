@@ -1,15 +1,33 @@
+import { useState } from "react";
+import NavigationBar from "../components/NavigationBar.jsx";
 import ellipse2 from "../assets/ellipse-2.svg";
 import "../styles/EntryPagePostVideo.css";
-import vector11 from "../assets/vector-11.svg";
 
 const EntryPagePostVideo = () => {
-  return (
-    <div className="entry-page-post">
-      <div className="image-div">
-        <img className="ellipse" alt="Ellipse" src={ellipse2} />
+  const [transitioning, setTransitioning] = useState(false);
 
-        <img className="vector" alt="Vector" src={vector11} />
+  const handleEllipseClick = () => {
+    setTransitioning(true);
+  };
+
+  return (
+    <div className={`entry-page-post ${transitioning ? 'transitioning' : ''}`}>
+      {/* First Background (Initially visible) */}
+      <div className={`background bg1 ${transitioning ? 'move-left' : ''}`}></div>
+
+      {/* Second Background (Initially off-screen to the right) */}
+      <div className={`background bg2 ${transitioning ? 'move-left' : ''}`}></div>
+
+      <div className="image-div">
+        <img
+          className={`ellipse ${transitioning ? 'ellipse-transition' : ''}`}
+          alt="Ellipse"
+          src={ellipse2}
+          onClick={handleEllipseClick}
+        />
       </div>
+
+      <NavigationBar />
     </div>
   );
 };

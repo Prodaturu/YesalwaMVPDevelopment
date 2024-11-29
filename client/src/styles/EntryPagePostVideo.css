@@ -1,35 +1,74 @@
 .entry-page-post {
 	background-color: transparent;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	width: 100%;
-  }
-  
-  .entry-page-post .image-div {
-	background-image: url(../assets/nasa-hubble-space-telescope.jpg);
-	background-position: 50% 25%;
-	background-repeat: no-repeat;
-	background-size: cover;
 	height: 100vh;
 	position: relative;
-	width: 100vw;
+	overflow: hidden;
   }
   
-  .entry-page-post .ellipse {
+  /* Shared background styles */
+  .background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	transition: transform 1.5s ease;
+  }
+  
+  /* Initial backgrounds */
+  .bg1 {
+	background-image: url(../assets/nasa-hubble-space-telescope.jpg);
+	background-position: center;
+  }
+  
+  .bg2 {
+	background-image: url(../assets/black-sky-bg.jpg);
+	background-position: center;
+	transform: translateX(100%); /* Initially off-screen to the right */
+  }
+  
+  /* When transitioning, move both backgrounds */
+  .entry-page-post.transitioning .bg1 {
+	transform: translateX(-100%); /* Move bg1 off-screen to the left */
+  }
+  
+  .entry-page-post.transitioning .bg2 {
+	transform: translateX(0); /* Move bg2 into view */
+  }
+  
+  /* Ellipse styles */
+  .ellipse {
 	height: 25vh;
 	position: absolute;
 	bottom: 7vh;
 	left: 15vh;
 	filter: drop-shadow(1vh -1.75vh 25px rgba(254, 249, 241, 0.36));
+	cursor: pointer;
   }
   
-
-  
-  .entry-page-post .vector {
-	height: 42px;
-	position: absolute;
-	top:3vh;
-	left: 2.5vh;
-	width: 42px;
+  .entry-page-post.transitioning .ellipse-transition {
+	animation: ellipse-move 1.5s forwards;
   }
+  
+  /* Ellipse animation */
+  @keyframes ellipse-move {
+	0% {
+	  transform: translate(0, 0);
+	  height: 25vh;
+	  left: 15vh;
+	}
+	100% {
+	  transform: translate(0%, 0%);
+	  height: 90vh;
+	  left: calc(50% - 45vh);
+	  margin-left: 0%;
+	}
+  }
+  

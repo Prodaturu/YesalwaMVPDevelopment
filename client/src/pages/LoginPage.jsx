@@ -1,4 +1,4 @@
-import ellipse6 from "../assets/ellipse-2.png";
+import ellipse6 from "../assets/ellipse-2.svg";
 import "../styles/LoginPage.css"
 import { Image } from "@chakra-ui/react";
 import UserTextBox from "../components/UserTextBox";

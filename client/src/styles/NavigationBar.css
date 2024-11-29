@@ -1,0 +1,13 @@
+/* NavigationBar.css */
+.navigation-bar {
+	position: absolute;  /* Keeps the navigation bar on top */
+	top: 3vh;
+	left: 2.5vh;
+	z-index: 10; /* Ensure it stays above other content */
+  }
+  
+  .vector {
+	height: 42px;
+	width: 42px;
+  }
+  
